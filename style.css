@@ -45,3 +45,7 @@ Template: Divi
 .mapboxgl-popup-content .source {
 	text-align: right;
 }
+
+.mapboxgl-popup-content .source .dashicons-external {
+	font-size: 15px;
+}

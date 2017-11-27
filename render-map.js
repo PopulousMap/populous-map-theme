@@ -42,7 +42,7 @@ map.on('load', function () {
 			+ e.features[0].properties.featured_image 
 			+ '"><p class="source"><a href="' 
 			+ customFields.source 
-			+ '" target="_blank">Source</a></p>';
+			+ '" target="_blank">Source<span class="dashicons dashicons-external"></span></a></p>';
 		new mapboxgl.Popup()
 		.setLngLat(e.features[0].geometry.coordinates)
 		.setHTML(popupText)
