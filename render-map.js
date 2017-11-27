@@ -28,14 +28,21 @@ map.on('load', function () {
 	// location of the feature, with description HTML from its properties.
 	map.on('click', 'data-points', function (e) {
 		var post = JSON.parse(e.features[0].properties.post);
+		var customFields = JSON.parse(e.features[0].properties.custom_fields);
 		var categoies = JSON.parse(e.features[0].properties.categories);
-		var popupText = '<h3>' 
+		var popupText = '<h3 class="title">' 
 			+ post.post_title 
-			+ '</h3><img src="' 
-			+ e.features[0].properties.featured_image 
-			+ '"><p><a href="' 
+			+ '</h3><p>' 
+			+ customFields.year 
+			+ '</p><p>' 
+			+ post.post_content 
+			+ '</p><p class="read-more"><a href="' 
 			+ post.guid 
-			+ '">Read More...</a></p>';
+			+ '">Read More</a></p><img src="' 
+			+ e.features[0].properties.featured_image 
+			+ '"><p class="source"><a href="' 
+			+ customFields.source 
+			+ '" target="_blank">Source</a></p>';
 		new mapboxgl.Popup()
 		.setLngLat(e.features[0].geometry.coordinates)
 		.setHTML(popupText)

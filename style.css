@@ -7,3 +7,41 @@ Template: Divi
 */
 
 @import url("../Divi/style.css");
+
+
+/* Map popup styles */
+
+.mapboxgl-popup-content .read-more {
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	overflow: hidden;
+    text-align: center;
+}
+
+.mapboxgl-popup-content .read-more:before,
+.mapboxgl-popup-content .read-more:after {
+    background-color: #666;
+    content: "";
+    display: inline-block;
+    height: 1px;
+    position: relative;
+    vertical-align: middle;
+    width: 50px;
+}
+.mapboxgl-popup-content .read-more:before {
+    right: 0.5em;
+    margin-left: -50%;
+}
+.mapboxgl-popup-content .read-more:after {
+    left: 0.5em;
+    margin-right: -50%;
+}
+
+.mapboxgl-popup-content .read-more a,
+.mapboxgl-popup-content .source a {
+	color: #666;
+}
+
+.mapboxgl-popup-content .source {
+	text-align: right;
+}
