@@ -11,17 +11,26 @@ map.addControl(new mapboxgl.NavigationControl());
 
 map.on('load', function () {
 
+	map.addSource("data-points", {
+		"type": "vector",
+		"url": "mapbox://populousmap.cj2p0vytf02jz2wqb59dpnlmg-7vbi6"
+	})
+
 	map.addLayer({
-		'id': 'data-points',
+		'id': 'breweries',
 		'type': 'circle',
-		'source': {
-			type: 'vector',
-			url: 'mapbox://populousmap.cj2p0vytf02jz2wqb59dpnlmg-7vbi6'
-		},
+		'source': "data-points",
 		'source-layer': 'Development_Test',
 		'paint': {
-			'circle-color': '#FFB6C1',
+			'circle-color': '#000000',
 		}
+	});
+
+	var wasLoaded = false;
+	map.on('render', function() {
+	    if (!map.loaded() || wasLoaded) return;
+	    console.log(map.querySourceFeatures('data-points'));
+	    wasLoaded = true;
 	});
 
 	// When a click event occurs on a feature in the data-points layer, open a popup at the
@@ -50,4 +59,5 @@ map.on('load', function () {
 		console.log(e);
 	});
 
-});    
+});
+
