@@ -11,37 +11,46 @@ map.addControl(new mapboxgl.NavigationControl());
 
 map.on('load', function () {
 
+	map.addSource("datapoints", {
+		"type": "vector",
+		"url": "mapbox://populousmap.cj2p0vytf02jz2wqb59dpnlmg-7vbi6"
+	});
+
 	map.addLayer({
-		'id': 'data-points',
+		'id': 'allPoints',
 		'type': 'circle',
-		'source': {
-			type: 'vector',
-			url: 'mapbox://populousmap.cj2p0vytf02jz2wqb59dpnlmg-7vbi6'
-		},
+		'source': "datapoints",
 		'source-layer': 'Development_Test',
 		'paint': {
-			'circle-color': '#FFB6C1',
-		}
+			'circle-color': [
+				"match",
+				["string", ["get", "custom_field_year"]],
+				"1868", "#fbb03b",
+				"1793", "#223b53",
+				"1902", "#e55e5e",
+				"1903", "#3bb2d0",
+				"1904", "#ccc",
+				"#000000"
+				],
+		},
 	});
 
 	// When a click event occurs on a feature in the data-points layer, open a popup at the
 	// location of the feature, with description HTML from its properties.
-	map.on('click', 'data-points', function (e) {
-		var post = JSON.parse(e.features[0].properties.post);
-		var customFields = JSON.parse(e.features[0].properties.custom_fields);
-		var categoies = JSON.parse(e.features[0].properties.categories);
+	map.on('click', 'allPoints', function (e) {
+		var properties = e.features[0].properties;
 		var popupText = '<h3 class="title">' 
-			+ post.post_title 
+			+ properties.post_title 
 			+ '</h3><p>' 
-			+ customFields.year 
+			+ properties.custom_field_year 
 			+ '</p><p>' 
-			+ post.post_content 
+			+ properties.post_content 
 			+ '</p><p class="read-more"><a href="' 
-			+ post.guid 
+			+ properties.guid 
 			+ '">Read More</a></p><img src="' 
-			+ e.features[0].properties.featured_image 
+			+ properties.featured_image 
 			+ '"><p class="source"><a href="' 
-			+ customFields.source 
+			+ properties.custom_field_source 
 			+ '" target="_blank">Source<span class="dashicons dashicons-external"></span></a></p>';
 		new mapboxgl.Popup()
 		.setLngLat(e.features[0].geometry.coordinates)
