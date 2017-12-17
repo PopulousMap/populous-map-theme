@@ -94,12 +94,14 @@ map.on('load', function () {
 	var inputs = [input0, input1];
 
 	noUiSlider.create(html5Slider, {
-		start: [ 1798, 2020 ],
+		start: [ 1750, 2018 ],
 		connect: true,
+		padding: 20,
 		step: 1,
+		tooltips: [wNumb({ decimals: 0 }), wNumb({ decimals: 0 })],
 		range: {
-			'min': 1798,
-			'max': 2020
+			'min': 1730,
+			'max': 2040
 		}
 	});
 
