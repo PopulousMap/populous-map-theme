@@ -48,12 +48,11 @@ map.on('load', function () {
 		'paint': {
 			'circle-color': [
 				"match",
-				["string", ["get", "custom_field_year"]],
-				"1900", "#fbb03b",
-				"1901", "#223b53",
-				"1902", "#e55e5e",
-				"1903", "#3bb2d0",
-				"1904", "#ccc",
+				["string", ["get", "custom_field_segment"]],
+				"Social", "#7FC9DB",
+				"Economic", "#EC7349",
+				"Political", "#FCF77E",
+				"Environmental", "#8BD462",
 				"#000000"
 				],
 		},
