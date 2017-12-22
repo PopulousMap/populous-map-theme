@@ -11,6 +11,10 @@ Template: Divi
 
 /* Map popup styles */
 
+.mapboxgl-popup-content {
+    max-width: 400px;
+}
+
 .mapboxgl-popup-content .read-more {
 	text-transform: uppercase;
 	letter-spacing: 2px;
@@ -52,6 +56,46 @@ Template: Divi
 
 /* Map Time Slider Styles */
 
+.year-slider {
+    margin: -4rem 4rem 2.6rem;
+}
+
 .year-slider input {
     display: none;
 }
+
+.noUi-horizontal {
+    height: 12px;
+}
+
+.noUi-target {
+    border: none;
+}
+
+.noUi-horizontal .noUi-handle {
+    height: 45px;
+    width: 45px;
+    border-radius: 50%;
+    top: -18px;
+}
+
+.noUi-horizontal .noUi-tooltip {
+    bottom: 6px;
+    border: none;
+    background: transparent;
+}
+
+.noUi-handle:after, 
+.noUi-handle:before {
+    display: none;
+}
+
+.noUi-connect {
+    background: #EC7349;
+}
+
+
+
+
+
+

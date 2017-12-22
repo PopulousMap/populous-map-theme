@@ -107,12 +107,11 @@ map.on('load', function () {
 	noUiSlider.create(html5Slider, {
 		start: [ 1750, 2018 ],
 		connect: true,
-		padding: 20,
 		step: 1,
 		tooltips: [wNumb({ decimals: 0 }), wNumb({ decimals: 0 })],
 		range: {
-			'min': 1730,
-			'max': 2040
+			'min': 1750,
+			'max': 2018
 		}
 	});
 
