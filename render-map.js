@@ -66,15 +66,27 @@ map.on('load', function () {
 			+ properties.post_title 
 			+ '</h3><p>' 
 			+ properties.custom_field_year 
-			+ '</p><p>' 
-			+ properties.post_content 
-			+ '</p><p class="read-more"><a href="' 
-			+ properties.guid 
-			+ '">Read More</a></p><img src="' 
-			+ properties.featured_image 
-			+ '"><p class="source"><a href="' 
+			+ '</p>';
+		if (properties.post_excerpt != '') {
+			popupText += '<p>' 
+				+ properties.post_excerpt 
+				+ '</p>';
+		}
+		if (properties.post_content != '') {
+			popupText += '<p class="read-more"><a href="' 
+				+ properties.guid 
+				+ '">Read More</a></p>';
+		}
+		if (properties.hasOwnProperty('featured_image') && properties.featured_image != '') {
+			popupText += '<img src="' 
+				+ properties.featured_image 
+				+ '">';
+		}
+		if (properties.custom_field_source != '') {
+			popupText += '<p class="source"><a href="' 
 			+ properties.custom_field_source 
 			+ '" target="_blank">Source<span class="dashicons dashicons-external"></span></a></p>';
+		}
 		new mapboxgl.Popup()
 		.setLngLat(e.features[0].geometry.coordinates)
 		.setHTML(popupText)
