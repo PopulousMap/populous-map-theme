@@ -8,6 +8,51 @@ Template: Divi
 
 @import url("../Divi/style.css");
 
+/* Map styles */
+
+#map {
+  /*position: absolute;*/
+  top: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+/* Map category filter styles */
+
+.categories {
+    margin-left: 3rem;
+    max-width: 225px;
+    margin-top: -650px;
+    position: absolute;
+}
+
+.categories ul li {
+    display: inline-block;
+    list-style-type: none;
+    background-color: #fff;
+    padding: 3px;
+    margin: 2px;
+    border-radius: 5px;
+    line-height: 1;
+    border: 2px solid #fff;
+}
+
+.categories ul li.active, 
+.categories ul li:hover {
+    background-color: #EC7349;
+    color: #fff;
+    border: 2px solid #EC7349;
+    cursor: pointer;
+}
+
+.categories ul li.active:hover {
+    background-color: #fff;
+    color: #666;
+    border: 2px solid #EC7349;
+    cursor: pointer;
+}
+
+
 
 /* Map popup styles */
 
@@ -58,6 +103,12 @@ Template: Divi
 
 .year-slider {
     margin: -4rem 4rem 2.6rem;
+}
+
+.year-slider:after {
+    content: '';
+    display: block;
+    clear: both;
 }
 
 .year-slider input {
