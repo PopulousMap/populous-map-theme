@@ -26,6 +26,61 @@ Template: Divi
     position: absolute;
 }
 
+.categories .categories-menu,
+.categories .categories-hide,
+.categories .categories-close {
+    display: inline-block;
+    background-color: #fff;
+    padding: 5px 5px 3px;
+    margin: 2px;
+    border-radius: 5px;
+    line-height: 1;
+    border: 2px solid #EC7349;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.categories .categories-hide {
+    display: none;
+}
+
+@media screen and (min-width:768px) {
+    .categories .categories-menu,
+    .categories .categories-close {
+        display: none;
+    }
+
+    .categories .categories-hide {
+        display: inline-block;
+    }
+}
+
+.categories .categories-close {
+    display: none;
+    background-color: #EC7349;
+    color: #fff;
+    text-align: center;
+}
+
+.categories .categories-menu .dashicons-menu,
+.categories .categories-hide .dashicons-hidden,
+.categories .categories-close .dashicons-yes {
+    margin-top: -3px;
+    margin-right: 5px;
+}
+
+.categories ul {
+    padding-left: 0;
+    padding-bottom: 5px;
+    display: none;
+}
+
+@media screen and (min-width:768px) {
+    .categories ul {
+        display: block;
+    }
+}
+
 .categories ul li {
     display: inline-block;
     list-style-type: none;
@@ -47,7 +102,7 @@ Template: Divi
 
 .categories ul li.active:hover {
     background-color: #fff;
-    color: #666;
+    color: #EC7349;
     border: 2px solid #EC7349;
     cursor: pointer;
 }

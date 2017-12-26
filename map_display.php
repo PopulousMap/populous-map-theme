@@ -1,5 +1,7 @@
 <div id='map'></div>
 <div class='categories'>
+	<div class='categories-menu'><span class="dashicons dashicons-menu"></span>Filter</div>
+	<div class='categories-hide'><span class="dashicons dashicons-hidden"></span>Hide Filters</div>
 	<ul>
 		<li>Food</li>
 		<li>Resistance</li>
@@ -28,6 +30,7 @@
 		<li>Activism</li>
 		<li>Acts</li>
 	</ul>
+	<div class='categories-close'><span class="dashicons dashicons-yes"></span>Done</div>
 </div>
 <div class="year-slider">
 	<input type="number" min="-20" max="40" step="1" id="input-number-low">
