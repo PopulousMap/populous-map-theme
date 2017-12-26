@@ -14,13 +14,8 @@ Template: Divi
   top: 0;
   bottom: 0;
   width: 100%;
-  height: 700px;
-}
-
-@media (pointer: coarse) {
-    #map {
-        height: 80vh;
-    }
+  height: 80vh;
+  max-height: 700px;
 }
 
 /* Map category filter styles */
@@ -28,8 +23,8 @@ Template: Divi
 .categories {
     margin-left: 3rem;
     max-width: 225px;
-    margin-top: -650px;
     position: absolute;
+    top: 5vh;
 }
 
 .categories .categories-menu,
