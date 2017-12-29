@@ -3,8 +3,14 @@
 	// Functions
 
 	/* Adds a filter to the map that only shows points within the year range */
+	var allFilters = [];
+	var years;
 
-	function filterByYearRange(years) {
+	function setYearRange(yearRange) {
+		years = yearRange;
+	}
+
+	function filterByYearRange() {
 		var low = years[0];
 		var high = years[1];
 		var allYears = [];
@@ -13,7 +19,23 @@
 		}
 		var filter = ["in", "custom_field_year"];
 		var yearFilter = filter.concat(allYears);
-		map.setFilter('allPoints', yearFilter);
+		allFilters.push(yearFilter);
+	}
+
+	function filterByCategory() {
+		$(".active").each(function() {
+			var categoryFilter = ['has', 'category_' + $( this ).text().toLowerCase() ];
+			console.log(categoryFilter);
+			allFilters.push(categoryFilter);
+		});	
+	}
+
+	function setMapFilters() {
+		allFilters = ["all"];
+		filterByYearRange();
+		filterByCategory();
+		console.log(allFilters);
+		map.setFilter('allPoints', allFilters);
 	}
 
 	function setSliderHandle(i, value) {
@@ -29,6 +51,10 @@
 		container: 'map',
 		style: 'mapbox://styles/populousmap/cj821itn4069b2ro1xh44nror',
 		center: [-126.196992, 54.588569], 
+		maxBounds: [
+			[-150, 44],
+			[-108, 63]
+		],
 		zoom: 4.5
 	});
 
@@ -98,80 +124,81 @@
 
 		// Create a dual slider
 
-	var html5Slider = document.getElementById('html5');
+		var html5Slider = document.getElementById('html5');
 
-	var input0 = document.getElementById('input-number-low');
-	var input1 = document.getElementById('input-number-high');
-	var inputs = [input0, input1];
+		var input0 = document.getElementById('input-number-low');
+		var input1 = document.getElementById('input-number-high');
+		var inputs = [input0, input1];
 
-	noUiSlider.create(html5Slider, {
-		start: [ 1750, 2018 ],
-		connect: true,
-		step: 1,
-		tooltips: [wNumb({ decimals: 0 }), wNumb({ decimals: 0 })],
-		range: {
-			'min': 1750,
-			'max': 2018
-		}
-	});
-
-	var yearRange = html5Slider.noUiSlider.get();
-
-	html5Slider.noUiSlider.on('update', function( values, handle ) {
-		inputs[handle].value = values[handle];
-		filterByYearRange(html5Slider.noUiSlider.get());
-	});
-
-	// Listen to keydown events on the input field.
-	inputs.forEach(function(input, handle) {
-
-		input.addEventListener('change', function(){
-			setSliderHandle(handle, this.value);
-		});
-
-		input.addEventListener('keydown', function( e ) {
-
-			var values = html5Slider.noUiSlider.get();
-			var value = Number(values[handle]);
-
-			// [[handle0_down, handle0_up], [handle1_down, handle1_up]]
-			var steps = html5Slider.noUiSlider.steps();
-
-			// [down, up]
-			var step = steps[handle];
-
-			var position;
-
-			// 13 is enter key
-			if ( e.which == 13 ) {
-				setSliderHandle(handle, this.value);
+		noUiSlider.create(html5Slider, {
+			start: [ 1750, 2018 ],
+			connect: true,
+			step: 1,
+			tooltips: [wNumb({ decimals: 0 }), wNumb({ decimals: 0 })],
+			range: {
+				'min': 1750,
+				'max': 2018
 			}
 		});
-	});
 
-	});
+		var yearRange = html5Slider.noUiSlider.get();
 
-	$(".categories-menu").click( function() {
-		$(".categories ul").slideToggle();
-		$(".categories-close").slideToggle();
-	} );
-
-	$(".categories-close").click( function() {
-		$(".categories-close").slideToggle();
-		$(".categories ul").slideToggle();
-	} );
-
-	$(".categories-hide").click( function() {
-		$( this ).slideToggle();
-		$(".categories ul").slideToggle( 400, function() {
-			$(".categories-menu").css('display', 'inline-block');
+		html5Slider.noUiSlider.on('update', function( values, handle ) {
+			inputs[handle].value = values[handle];
+			setYearRange( html5Slider.noUiSlider.get() );
+			setMapFilters();
 		});
-	} );
 
-	$("li").click( function() { 
-		$( this ).toggleClass('active');
-		var category = $( this ).text();
-		map.setFilter('allPoints', ["match", category, ["get", "all_categories"], true, false]);
+		// Listen to keydown events on the input field.
+		inputs.forEach(function(input, handle) {
+
+			input.addEventListener('change', function(){
+				setSliderHandle(handle, this.value);
+			});
+
+			input.addEventListener('keydown', function( e ) {
+
+				var values = html5Slider.noUiSlider.get();
+				var value = Number(values[handle]);
+
+				// [[handle0_down, handle0_up], [handle1_down, handle1_up]]
+				var steps = html5Slider.noUiSlider.steps();
+
+				// [down, up]
+				var step = steps[handle];
+
+				var position;
+
+				// 13 is enter key
+				if ( e.which == 13 ) {
+					setSliderHandle(handle, this.value);
+				}
+			});
+		});
+
+		$(".categories-menu").click( function() {
+			$(".categories ul").slideToggle();
+			$(".categories-close").slideToggle();
+		} );
+
+		$(".categories-close").click( function() {
+			$(".categories-close").slideToggle();
+			$(".categories ul").slideToggle();
+		} );
+
+		$(".categories-hide").click( function() {
+			$( this ).slideToggle();
+			$(".categories ul").slideToggle( 400, function() {
+				$(".categories-menu").css('display', 'inline-block');
+			});
+		} );
+
+		$("li").click( function() { 
+			$( this ).toggleClass('active');
+			var category = $( this ).text();
+			setMapFilters();
+		});
+
 	});
 
 })( jQuery );
