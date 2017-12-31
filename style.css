@@ -91,21 +91,13 @@ Template: Divi
     border-radius: 5px;
     line-height: 1;
     border: 2px solid #fff;
+    cursor: pointer;
 }
 
-.categories ul li.active, 
-.categories ul li:hover {
+.categories ul li.active {
     background-color: #EC7349;
     color: #fff;
-    border: 2px solid #EC7349;
-    cursor: pointer;
-}
-
-.categories ul li.active:hover {
-    background-color: #fff;
-    color: #EC7349;
-    border: 2px solid #EC7349;
-    cursor: pointer;
+    border: 2px solid #EC7349; 
 }
 
 
