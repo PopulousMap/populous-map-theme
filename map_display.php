@@ -29,6 +29,7 @@
 		<li>Epidemics</li>
 		<li>Activism</li>
 		<li>Acts</li>
+		<li>Disability</li>
 	</ul>
 	<div class='categories-close'><span class="dashicons dashicons-yes"></span>Done</div>
 </div>
