@@ -72,7 +72,7 @@
 			'id': 'allPoints',
 			'type': 'circle',
 			'source': "datapoints",
-			'source-layer': 'Development_Test',
+			'source-layer': 'original',
 			'paint': {
 				'circle-color': [
 					"match",
