@@ -36,7 +36,7 @@ Template: Divi
     margin: 2px;
     border-radius: 5px;
     line-height: 1;
-    border: 2px solid #EC7349;
+    border-bottom: 2px solid #EC7349;
     cursor: pointer;
     margin-bottom: 10px;
 }
@@ -70,19 +70,19 @@ Template: Divi
     margin-right: 5px;
 }
 
-.categories ul {
+.categories ul.filters {
     padding-left: 0;
     padding-bottom: 5px;
     display: none;
 }
 
 @media screen and (min-width:768px) {
-    .categories ul {
+    .categories ul.filters {
         display: block;
     }
 }
 
-.categories ul li {
+.categories ul.filters li {
     display: inline-block;
     list-style-type: none;
     background-color: #fff;
@@ -94,12 +94,55 @@ Template: Divi
     cursor: pointer;
 }
 
-.categories ul li.active {
+.categories ul.filters li.active {
     background-color: #EC7349;
     color: #fff;
     border: 2px solid #EC7349; 
 }
 
+.categories ul.legend {
+    background-color: #fff;
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    padding-bottom: .7rem;
+    border-radius: 5px;
+    margin-top: 1rem;
+}
+
+.categories ul.legend li {
+    padding-left: 1rem;
+    line-height: 1;
+    margin-right: 1rem;
+}
+
+.categories ul.legend li:before {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: green;
+    display: block;
+    content: " ";
+    left: -1rem;
+    top: .7rem;
+    position: relative;
+}
+
+.categories ul.legend #social:before {
+    background-color: #7FC9DB;
+}
+
+.categories ul.legend li#economic:before {
+    background-color: #EC7349;
+}
+
+.categories ul.legend li#political:before {
+    background-color: #FCF77E;
+}
+
+.categories ul.legend li#environmental:before {
+    background-color: #8BD462;
+}
 
 
 /* Map popup styles */

@@ -193,7 +193,7 @@
 			});
 		} );
 
-		$("li").click( function() { 
+		$(".filters li").click( function() { 
 			$( this ).toggleClass('active');
 			var category = $( this ).text();
 			setMapFilters();
