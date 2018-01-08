@@ -50,12 +50,12 @@
 	var map = new mapboxgl.Map({
 		container: 'map',
 		style: 'mapbox://styles/populousmap/cj821itn4069b2ro1xh44nror',
-		center: [-126.196992, 54.588569], 
+		center: [-125.5, 54], 
 		maxBounds: [
-			[-150, 44],
-			[-108, 63]
+			[-166, 44],
+			[-90, 63]
 		],
-		zoom: 4.5
+		zoom: 4.25
 	});
 
 	map.scrollZoom.disable();
