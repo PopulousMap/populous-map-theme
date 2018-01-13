@@ -65,7 +65,7 @@
 
 		map.addSource("datapoints", {
 			"type": "vector",
-			"url": "mapbox://populousmap.cj2p0vytf02jz2wqb59dpnlmg-7vbi6"
+			"url": "mapbox://populousmap.cj2nf2aet02232wnnw6g1d63i-91mwl"
 		});
 
 		map.addLayer({
