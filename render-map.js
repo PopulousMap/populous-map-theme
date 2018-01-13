@@ -110,6 +110,11 @@
 					+ properties.featured_image 
 					+ '">';
 			}
+			popupText += '<p class="suggest"><a href="mailto:populousmap@gmail.com?subject=Suggestion: ' 
+				+ properties.ID 
+				+ ' - ' 
+				+ properties.post_title 
+				+ '"><span class="dashicons dashicons-email"></span>Suggest Changes</a></p>';
 			if (properties.custom_field_source != '') {
 				popupText += '<p class="source"><a href="' 
 				+ properties.custom_field_source 

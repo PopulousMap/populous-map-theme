@@ -194,15 +194,25 @@ Template: Divi
 }
 
 .mapboxgl-popup-content .read-more a,
-.mapboxgl-popup-content .source a {
+.mapboxgl-popup-content .source a,
+.mapboxgl-popup-content .suggest a {
 	color: #666;
 }
 
 .mapboxgl-popup-content .source {
-	text-align: right;
+	float: right;
+    display: inline-block;
+    padding-bottom: 0;
 }
 
-.mapboxgl-popup-content .source .dashicons-external {
+.mapboxgl-popup-content .suggest {
+    float: left;
+    display: inline-block;
+    padding-bottom: 0;
+}
+
+.mapboxgl-popup-content .source .dashicons-external,
+.mapboxgl-popup-content .suggest .dashicons-email {
 	font-size: 15px;
 }
 
