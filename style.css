@@ -100,7 +100,17 @@ Template: Divi
     border: 2px solid #EC7349; 
 }
 
-.categories ul.legend {
+.categories .legend {
+    display: none;
+}
+
+@media screen and (min-width:768px) {
+    .categories .legend {
+        display: block;
+    }
+}
+
+.categories .legend ul {
     background-color: #fff;
     display: flex;
     flex-wrap: wrap;
@@ -110,13 +120,13 @@ Template: Divi
     margin-top: 1rem;
 }
 
-.categories ul.legend li {
+.categories .legend ul li {
     padding-left: 1rem;
     line-height: 1;
     margin-right: 1rem;
 }
 
-.categories ul.legend li:before {
+.categories .legend ul li:before {
     width: 10px;
     height: 10px;
     border-radius: 50%;
@@ -128,19 +138,19 @@ Template: Divi
     position: relative;
 }
 
-.categories ul.legend #social:before {
+.categories .legend ul #social:before {
     background-color: #7FC9DB;
 }
 
-.categories ul.legend li#economic:before {
+.categories .legend ul li#economic:before {
     background-color: #EC7349;
 }
 
-.categories ul.legend li#political:before {
+.categories .legend ul li#political:before {
     background-color: #FCF77E;
 }
 
-.categories ul.legend li#environmental:before {
+.categories .legend ul li#environmental:before {
     background-color: #8BD462;
 }
 
@@ -148,7 +158,13 @@ Template: Divi
 /* Map popup styles */
 
 .mapboxgl-popup-content {
-    max-width: 400px;
+    max-width: 300px;
+}
+
+@media screen and (min-width:450px) {
+    .mapboxgl-popup-content {
+        max-width: 400px;
+    }
 }
 
 .mapboxgl-popup-content .read-more {

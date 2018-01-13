@@ -177,18 +177,21 @@
 		});
 
 		$(".categories-menu").click( function() {
-			$(".categories ul").slideToggle();
+			$(".categories ul.filters").slideToggle();
+			$(".categories .legend").slideToggle();
 			$(".categories-close").slideToggle();
 		} );
 
 		$(".categories-close").click( function() {
 			$(".categories-close").slideToggle();
-			$(".categories ul").slideToggle();
+			$(".categories ul.filters").slideToggle();
+			$(".categories .legend").slideToggle();
 		} );
 
 		$(".categories-hide").click( function() {
 			$( this ).slideToggle();
-			$(".categories ul").slideToggle( 400, function() {
+			$(".categories .legend").slideToggle();
+			$(".categories ul.filters").slideToggle( 400, function() {
 				$(".categories-menu").css('display', 'inline-block');
 			});
 		} );

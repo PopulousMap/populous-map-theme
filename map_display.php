@@ -32,8 +32,8 @@
 		<li>Disability</li>
 	</ul>
 	<div class='categories-close'><span class="dashicons dashicons-yes"></span>Done</div>
-	<div>
-		<ul class='legend'>
+	<div class='legend'>
+		<ul>
 			<li id="social">Social</li>
 			<li id="economic">Economic</li>
 			<li id="political">Political</li>
