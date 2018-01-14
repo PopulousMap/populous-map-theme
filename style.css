@@ -199,16 +199,19 @@ Template: Divi
 	color: #666;
 }
 
-.mapboxgl-popup-content .source {
-	float: right;
+.mapboxgl-popup-content .suggest,
+.mapboxgl-popup-content .suggest {
+    font-size: 1em;
     display: inline-block;
     padding-bottom: 0;
 }
 
+.mapboxgl-popup-content .source {
+	float: right;
+}
+
 .mapboxgl-popup-content .suggest {
     float: left;
-    display: inline-block;
-    padding-bottom: 0;
 }
 
 .mapboxgl-popup-content .source .dashicons-external,
