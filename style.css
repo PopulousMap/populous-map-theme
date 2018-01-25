@@ -36,7 +36,7 @@ Template: Divi
     margin: 2px;
     border-radius: 5px;
     line-height: 1;
-    border-bottom: 2px solid #EC7349;
+    border-bottom: 2px solid #F08737;
     cursor: pointer;
     margin-bottom: 10px;
 }
@@ -58,7 +58,7 @@ Template: Divi
 
 .categories .categories-close {
     display: none;
-    background-color: #EC7349;
+    background-color: #F08737;
     color: #fff;
     text-align: center;
 }
@@ -95,9 +95,9 @@ Template: Divi
 }
 
 .categories ul.filters li.active {
-    background-color: #EC7349;
+    background-color: #F08737;
     color: #fff;
-    border: 2px solid #EC7349; 
+    border: 2px solid #F08737; 
 }
 
 .categories .legend {
@@ -139,19 +139,19 @@ Template: Divi
 }
 
 .categories .legend ul #social:before {
-    background-color: #7FC9DB;
+    background-color: #6BC6FF;
 }
 
 .categories .legend ul li#economic:before {
-    background-color: #EC7349;
+    background-color: #F0A637;
 }
 
 .categories .legend ul li#political:before {
-    background-color: #FCF77E;
+    background-color: #FFED4F;
 }
 
 .categories .legend ul li#environmental:before {
-    background-color: #8BD462;
+    background-color: #60D158;
 }
 
 
@@ -165,6 +165,49 @@ Template: Divi
     .mapboxgl-popup-content {
         max-width: 400px;
     }
+}
+
+.mapboxgl-popup-content .year {
+    color: #F08737;
+    display: inline-block;
+    font-size: 1.5rem;
+    padding-bottom: 0;
+}
+
+.mapboxgl-popup-content .segment {
+    bottom: 0.2rem;
+    display: inline-block;
+    margin-left: 1.5rem;
+    padding-bottom: 1rem;
+    position: relative;   
+}
+
+.mapboxgl-popup-content .segment:before {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: green;
+    display: block;
+    content: " ";
+    left: -1rem;
+    top: .7rem;
+    position: relative;
+}
+
+.mapboxgl-popup-content .segment.Social:before {
+    background-color: #6BC6FF;
+}
+
+.mapboxgl-popup-content .segment.Economic:before {
+    background-color: #F0A637;
+}
+
+.mapboxgl-popup-content .segment.Political:before {
+    background-color: #FFED4F;
+}
+
+.mapboxgl-popup-content .segment.Environmental:before {
+    background-color: #60D158;
 }
 
 .mapboxgl-popup-content .read-more {
@@ -241,17 +284,20 @@ Template: Divi
 
 .noUi-target {
     border: none;
+    background: #7b7b7b;
+    box-shadow: none;
 }
 
 .noUi-horizontal .noUi-handle {
+    border: 7px solid #F08737;
+    border-radius: 50%;
     height: 45px;
     width: 45px;
-    border-radius: 50%;
     top: -18px;
 }
 
 .noUi-horizontal .noUi-tooltip {
-    bottom: 6px;
+    bottom: 0;
     border: none;
     background: transparent;
 }
@@ -262,7 +308,8 @@ Template: Divi
 }
 
 .noUi-connect {
-    background: #EC7349;
+    background: #F08737;
+    box-shadow: none;
 }
 
 

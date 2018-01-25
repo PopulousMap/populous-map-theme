@@ -77,12 +77,13 @@
 				'circle-color': [
 					"match",
 					["string", ["get", "custom_field_segment"]],
-					"Social", "#7FC9DB",
-					"Economic", "#EC7349",
-					"Political", "#FCF77E",
-					"Environmental", "#8BD462",
+					"Social", "#6BC6FF",
+					"Economic", "#F0A637",
+					"Political", "#FFED4F",
+					"Environmental", "#60D158",
 					"#000000"
-					],
+				],
+				'circle-radius': 6,
 			},
 		});
 
@@ -90,11 +91,19 @@
 		// location of the feature, with description HTML from its properties.
 		map.on('click', 'allPoints', function (e) {
 			var properties = e.features[0].properties;
-			var popupText = '<h3 class="title">' 
-				+ properties.post_title 
-				+ '</h3><p>' 
+			var popupText = '<p class="year">' 
 				+ properties.custom_field_year 
 				+ '</p>';
+			if (properties.custom_field_segment != '') {
+				popupText += '<p class=" segment ' 
+					+ properties.custom_field_segment 
+					+ '">' 
+					+ properties.custom_field_segment 
+					+ '</p>';
+			}
+			popupText += '<h3 class="title">' 
+				+ properties.post_title 
+				+ '</h3><hr>';
 			if (properties.post_excerpt != '') {
 				popupText += '<p>' 
 					+ properties.post_excerpt 
