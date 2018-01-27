@@ -210,6 +210,32 @@ Template: Divi
     background-color: #60D158;
 }
 
+.mapboxgl-popup-content .title {
+    padding-bottom: 0;
+}
+
+.mapboxgl-popup-content .point-categories {
+    padding: 0;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.mapboxgl-popup-content .point-categories li {
+    display: inline-block;
+    list-style-type: none;
+    background-color: #F08737;
+    padding: 3px;
+    margin: 2px;
+    border-radius: 5px;
+    line-height: 1;
+    border: 2px solid #F08737;
+    color: #fff;
+}
+
+.mapboxgl-popup-content .excerpt {
+    font-size: 1.3em;
+}
+
 .mapboxgl-popup-content .read-more {
 	text-transform: uppercase;
 	letter-spacing: 2px;

@@ -91,6 +91,9 @@
 		// location of the feature, with description HTML from its properties.
 		map.on('click', 'allPoints', function (e) {
 			var properties = e.features[0].properties;
+			if (e.features[0].properties.all_categories != null) {
+				var categories = JSON.parse(e.features[0].properties.all_categories);
+			}
 			var popupText = '<p class="year">' 
 				+ properties.custom_field_year 
 				+ '</p>';
@@ -103,9 +106,19 @@
 			}
 			popupText += '<h3 class="title">' 
 				+ properties.post_title 
-				+ '</h3><hr>';
+				+ '</h3>';
+			if (categories) {
+				popupText += '<ul class="point-categories">';
+				for (var i = 0, len = categories.length; i < len; i++) {
+					var category = JSON.parse(properties['category_' + categories[i]]);
+					popupText += '<li>' 
+						+ category.name 
+						+ '</li>';
+				}
+				popupText += '</ul>';
+			}
 			if (properties.post_excerpt != '') {
-				popupText += '<p>' 
+				popupText += '<p class="excerpt">' 
 					+ properties.post_excerpt 
 					+ '</p>';
 			}
