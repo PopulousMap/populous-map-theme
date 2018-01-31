@@ -23,6 +23,7 @@ Template: Divi
 .search {
     margin-bottom: 1rem;
     margin-top: 1rem;
+    display: none;
 }
 
 input#tag-search {
@@ -30,6 +31,12 @@ input#tag-search {
     border-radius: 5px;
     font-size: 100%;
     color: #F08737;
+}
+
+@media screen and (min-width:768px) {
+    .search {
+        display: block;
+    }
 }
 
 /* Map category filter styles */
