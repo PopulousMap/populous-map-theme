@@ -30,10 +30,18 @@
 		});	
 	}
 
+	function filterByTag() {
+		if ( $('#tag-search').val() != '' ) {
+			var tagFilter = ['has', 'tag_' + $('#tag-search').val().toLowerCase() ];
+			allFilters.push(tagFilter);
+		}
+	}
+
 	function setMapFilters() {
 		allFilters = ["all"];
 		filterByYearRange();
 		filterByCategory();
+		filterByTag();
 		console.log(allFilters);
 		map.setFilter('allPoints', allFilters);
 	}
@@ -205,12 +213,14 @@
 
 		$(".categories-menu").click( function() {
 			$(".categories ul.filters").slideToggle();
+			$(".categories .search").slideToggle();
 			$(".categories .legend").slideToggle();
 			$(".categories-close").slideToggle();
 		} );
 
 		$(".categories-close").click( function() {
 			$(".categories-close").slideToggle();
+			$(".categories .search").slideToggle();
 			$(".categories ul.filters").slideToggle();
 			$(".categories .legend").slideToggle();
 		} );
@@ -218,6 +228,7 @@
 		$(".categories-hide").click( function() {
 			$( this ).slideToggle();
 			$(".categories .legend").slideToggle();
+			$(".categories .search").slideToggle();
 			$(".categories ul.filters").slideToggle( 400, function() {
 				$(".categories-menu").css('display', 'inline-block');
 			});
@@ -227,6 +238,16 @@
 			$( this ).toggleClass('active');
 			var category = $( this ).text();
 			setMapFilters();
+		});
+
+		$('#tag-search').keyup(function(event){
+		    var keycode = (event.keyCode ? event.keyCode : event.which);
+		    if(keycode == '13'){
+		        setMapFilters();
+		    }
+		    if ( $('#tag-search').val() == '' ) {
+		    	setMapFilters();
+		    }
 		});
 
 	});

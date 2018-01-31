@@ -18,6 +18,20 @@ Template: Divi
   height: 90vh;
 }
 
+/* Tag search styles */
+
+.search {
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+}
+
+input#tag-search {
+    border: 2px solid #FFF;
+    border-radius: 5px;
+    font-size: 100%;
+    color: #F08737;
+}
+
 /* Map category filter styles */
 
 .categories {
@@ -72,7 +86,7 @@ Template: Divi
 
 .categories ul.filters {
     padding-left: 0;
-    padding-bottom: 5px;
+    padding-bottom: 0;
     display: none;
 }
 
@@ -190,7 +204,7 @@ Template: Divi
     display: block;
     content: " ";
     left: -1rem;
-    top: .7rem;
+    top: .95rem;
     position: relative;
 }
 

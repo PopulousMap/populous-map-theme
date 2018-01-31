@@ -31,6 +31,9 @@
 		<li>Acts</li>
 		<li>Disability</li>
 	</ul>
+	<div class='search'>
+		<input type='text' name='tag-search' id='tag-search' placeholder="Search tags">
+	</div>
 	<div class='categories-close'><span class="dashicons dashicons-yes"></span>Done</div>
 	<div class='legend'>
 		<ul>
