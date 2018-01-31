@@ -31,8 +31,10 @@
 	}
 
 	function filterByTag() {
-		if ( $('#tag-search').val() != '' ) {
-			var tagFilter = ['has', 'tag_' + $('#tag-search').val().toLowerCase() ];
+		var tag = $('#tag-search').val();
+		if ( tag != '' ) {
+			var formattedTag = tag.replace(' ', '-');
+			var tagFilter = ['has', 'tag_' + formattedTag.toLowerCase() ];
 			allFilters.push(tagFilter);
 		}
 	}
