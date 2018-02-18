@@ -23,6 +23,7 @@ Template: Divi
 .search {
     margin-bottom: 1rem;
     margin-top: 1rem;
+	margin-left: 1px;
     display: none;
 }
 
@@ -108,9 +109,9 @@ input#tag-search {
     list-style-type: none;
     background-color: #fff;
     padding: 3px;
-    margin: 2px;
+    margin: 2px 1px 3px 1px;
     border-radius: 5px;
-    line-height: 1;
+    line-height: 0.95;
     border: 2px solid #fff;
     cursor: pointer;
 }
@@ -128,6 +129,7 @@ input#tag-search {
 @media screen and (min-width:768px) {
     .categories .legend {
         display: block;
+		margin-left: 1px;
     }
 }
 
