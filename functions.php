@@ -19,8 +19,12 @@ function action_category_field_map_options( $term ) {
 }
 
 function save_category_field_map_options( $termID ) {
-	$data = sanitize_key( $_POST['show_on_map'] );
-	update_term_meta( $termID, 'show_on_map', $data );
+	if ( !empty( $_POST[ 'show_on_map' ] ) ) {
+		$data = sanitize_key( $_POST[ 'show_on_map' ] );
+		update_term_meta( $termID, 'show_on_map', $data );
+	} else {
+		update_term_meta( $termID, 'show_on_map', null );
+	}
 }
 
 add_shortcode('render_populous_map', 'render_populous_map_func');
