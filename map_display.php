@@ -3,33 +3,23 @@
 	<div class='categories-menu'><span class="dashicons dashicons-menu"></span>Filters &amp; Legend</div>
 	<div class='categories-hide'><span class="dashicons dashicons-hidden"></span>Hide Filters</div>
 	<ul class="filters">
-		<li>Food</li>
-		<li>Resistance</li>
-		<li>Water</li>
-		<li>Transportation</li>
-		<li>Inspiration</li>
-		<li>Art</li>
-		<li>Business</li>
-		<li>Medicine</li>
-		<li>People of Colour</li>
-		<li>Politics</li>
-		<li>Indigenous</li>
-		<li>Agriculture</li>
-		<li>Women</li>
-		<li>Disaster</li>
-		<li>Environmental</li>
-		<li>Medical</li>
-		<li>Mining</li>
-		<li>Mental Health</li>
-		<li>Forestry</li>
-		<li>Gatherings</li>
-		<li>Infrastructure</li>
-		<li>Languages</li>
-		<li>Queer</li>
-		<li>Epidemics</li>
-		<li>Activism</li>
-		<li>Acts</li>
-		<li>Disability</li>
+		<?php 
+
+		$args = array(
+			'taxonomy' => 'category',
+			'type' => 'post',
+			'orderby' => 'name'
+		);
+		$categories = get_categories( $args );
+
+		foreach ($categories as $category) {
+			$show_on_map_meta = get_term_meta( $category->term_id, 'show_on_map', true );
+			if ( $show_on_map_meta == 'show_on_map' ) {
+				echo '<li>' . $category->name . '</li>';
+			}
+		}
+
+		?>
 	</ul>
 	<div class='search'>
 		<input type='text' name='tag-search' id='tag-search' placeholder="Search tags">
