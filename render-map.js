@@ -24,7 +24,8 @@
 
 	function filterByCategory() {
 		$(".active").each(function() {
-			var categoryFilter = ['has', 'category_' + $( this ).text().toLowerCase() ];
+			var formatted = $( this ).text().toLowerCase().replace(/ /g, '_');
+			var categoryFilter = ['has', 'category_' + formatted ];
 			console.log(categoryFilter);
 			allFilters.push(categoryFilter);
 		});	
