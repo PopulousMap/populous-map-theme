@@ -136,7 +136,7 @@
 			if (properties.post_content != '') {
 				popupText += '<p class="read-more"><a href="' 
 					+ properties.guid 
-					+ '">Read More</a></p>';
+					+ '" target="_blank">Read More</a></p>';
 			}
 			if (properties.hasOwnProperty('featured_image') && properties.featured_image != '') {
 				popupText += '<img src="' 
