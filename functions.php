@@ -30,12 +30,12 @@ function save_category_field_map_options( $termID ) {
 add_shortcode('render_populous_map', 'render_populous_map_func');
 
 function load_render_map_script(){
-	wp_enqueue_script( 'mapbox_gl_js_script', 'https://api.tiles.mapbox.com/mapbox-gl-js/v0.42.1/mapbox-gl.js' );
+	wp_enqueue_script( 'mapbox_gl_js_script', 'https://api.tiles.mapbox.com/mapbox-gl-js/v0.49.0/mapbox-gl.js' );
 	wp_enqueue_script( 'render_map_script', get_stylesheet_directory_uri() . '/render-map.js', array( 'jquery' ), filemtime( get_stylesheet_directory() . '/render-map.js' ), true );
 	wp_enqueue_script( 'wNumb_script', get_stylesheet_directory_uri() . '/wNumb.js' );
 	wp_enqueue_script( 'noiuslider_script', get_stylesheet_directory_uri() . '/nouislider.min.js' );
 	wp_enqueue_style( 'nouislider_style', get_stylesheet_directory_uri() . '/nouislider.min.css' );
-	wp_enqueue_style( 'mapbox_gl_js_style', 'https://api.tiles.mapbox.com/mapbox-gl-js/v0.42.1/mapbox-gl.css' );
+	wp_enqueue_style( 'mapbox_gl_js_style', 'https://api.tiles.mapbox.com/mapbox-gl-js/v0.49.0/mapbox-gl.css' );
 } 
 
 add_action('category_edit_form_fields', 'action_category_field_map_options');
